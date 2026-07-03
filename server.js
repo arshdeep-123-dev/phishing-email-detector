@@ -10,7 +10,15 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "http://127.0.0.1:5500",      // Live Server
+        "http://localhost:5500",      // Live Server (alternative)
+        "https://phishing-email-detector-frontend.vercel.app/"
+    ],
+    methods: ["GET", "POST"],
+    credentials: true
+}));
 
 app.use(express.json());
 
